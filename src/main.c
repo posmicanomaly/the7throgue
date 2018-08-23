@@ -2,9 +2,7 @@
 #include <ncurses.h>
 #include "rogue.h"
 
-struct crap {
-	char map[HEIGHT][WIDTH];
-};
+char map[HEIGHT * WIDTH];
 
 int main(int argc, char *argv[]) {
 	initscr();
@@ -12,6 +10,7 @@ int main(int argc, char *argv[]) {
 	init_pair(1, COLOR_RED, COLOR_BLACK);
 	for(int y = 0; y < HEIGHT; y++) {
                 for(int x = 0; x < WIDTH; x++) {
+			int index = WIDTH * y + x;
                         mvprintw(y + yOffset, x + xOffset, ".");
                 }
         }
